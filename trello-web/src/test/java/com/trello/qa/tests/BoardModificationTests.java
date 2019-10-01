@@ -4,10 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class BoardModificationTests extends TestBase {
+
     @Test
     public void testRenameBoard() throws InterruptedException {
         app.getBoardHelper().clickOnFirstPrivateBoard();
-        String boardName = "QA-21-Anna";
+        String boardName = "QA-21-Olga";
         app.getBoardHelper().changBoardProfile(boardName);
         Thread.sleep(5000);
         app.getBoardHelper().returnFromBoardToHomePage();

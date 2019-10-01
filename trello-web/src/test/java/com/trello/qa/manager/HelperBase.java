@@ -51,4 +51,8 @@ public class HelperBase {
 
         click(By.cssSelector(".icon-add.icon-sm"));
     }
+
+    public void refreshPage() {
+        driver.navigate().refresh();
+    }
 }

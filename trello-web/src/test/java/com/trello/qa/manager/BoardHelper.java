@@ -14,14 +14,15 @@ public class BoardHelper extends HelperBase {
         click(By.cssSelector("[data-test-id=header-create-board-button]"));
     }
 
-    public void fillBoardCreationForm(String boardName, String s) {
-        type(By.cssSelector("[data-test-id=header-create-board-title-input]"), boardName);
+    public void fillBoardCreationForm(BoardData board) {
+        type(By.cssSelector("[data-test-id=header-create-board-title-input]"), board.getBoardName());
     }
 
     public void confirmBoardCreation() {
         click(By.cssSelector("[type=button]"));
 
     }
+
 
     public String getBoardNameFromBoardPage() {
         return driver.findElement(By.cssSelector(".js-board-editing-target")).getText();
@@ -77,5 +78,22 @@ public class BoardHelper extends HelperBase {
         driver.findElement(By.cssSelector(".js-board-editing-target")).click();
         Thread.sleep(3000);
         driver.findElement(By.cssSelector(".js-board-name-input")).sendKeys(boardName);
+        returnFromBoardToHomePage();
+    }
+    public boolean isBoardPresent() throws InterruptedException {
+        return getBoardsCount()>0;
+    }
+    public void createBoard() throws InterruptedException {
+        clickOnPlusButtonOnHeader();
+        selectCreateBoardFromDropDown();
+        String boardName = "My board";
+        fillBoardCreationForm
+                (new BoardData()
+                        .withBoardName(boardName)
+                        .withS("descr qa 21"));
+        click(By.cssSelector("._1vk4y48RR5OmqE"));
+        click(By.xpath("//span[contains(text(),'No team')]"));
+        confirmBoardCreation();
+        returnFromBoardToHomePage();
     }
 }

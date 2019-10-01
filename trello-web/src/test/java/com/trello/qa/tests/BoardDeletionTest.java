@@ -9,7 +9,7 @@ public class BoardDeletionTest extends TestBase {
     @BeforeClass
     public void ensurePreconditionsLogin() {
         if (!app.getSessionHelper().isUserLoggedIn()) {
-            app.getSessionHelper().login("annabalabuha77@gmail.com", "annadorosh77");
+            app.getSessionHelper().login("marina.yasina@gmail.com", "SofiaAmalia2016");
         }
     }
 
