@@ -52,24 +52,22 @@ public class TeamCreationTests extends TestBase {
             app.getSessionHelper().login("marina.yasina@gmail.com", "SofiaAmalia2016");
         }
     }
-// @Test(dataProvider = "validTeams")
-// public void testTeamCreationFromPlusButtonOnHeaderWithDataProviderFromcsv- tot je test s CSV
-// (TeamData team) {
+ @Test(dataProvider = "validTeamsfromcsv")
+ public void testTeamCreationFromPlusButtonOnHeaderWithDataProviderFromcsv
+ (TeamData team) {
 // TeamData team =
 // new TeamData().withTeamName(teamName).withDescription(description);
-// int before = app.getTeamHelper().getTeamsCount();
-// app.getTeamHelper().clickOnPlusButtonOnHeader();
-// app.getTeamHelper().selectCreateTeamFromDropDown();
-//
-// app.getTeamHelper().fillTeamCreationForm(team);
-//
-// app.getTeamHelper().clickContinueButton();
-// // String createdTeamName = getTeamNameFromTeamPage();
-// app.getTeamHelper().returnToHomePage();
-// int after = app.getTeamHelper().getTeamsCount();
-// Assert.assertEquals(after, before + 1);
-// // Assert.assertEquals(createdTeamName.toLowerCase(), teamName.toLowerCase());
-// }
+ int before = app.getTeamHelper().getTeamsCount();
+ app.getTeamHelper().clickOnPlusButtonOnHeader();
+app.getTeamHelper().selectCreateTeamFromDropDown();
+app.getTeamHelper().fillTeamCreationForm(team);
+ app.getTeamHelper().clickContinueButton();
+// String createdTeamName = getTeamNameFromTeamPage();
+ app.getTeamHelper().returnToHomePage();
+ int after = app.getTeamHelper().getTeamsCount();
+ Assert.assertEquals(after, before + 1);
+ // Assert.assertEquals(createdTeamName.toLowerCase(), teamName.toLowerCase());
+ }
 
     @Test(dataProvider = "validTeams")
     public void testTeamCreationFromPlusButtonOnHeaderWithDataProvider
